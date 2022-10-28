@@ -4,10 +4,10 @@ const nextConfig = {
     appDir: true,
   },
   publicRuntimeConfig: {
-    PUBLIC_FOO: "PUBLIC_BAR",
+    PUBLIC_FOO: process.env.PUBLIC_FOO || "PUBLIC_BAR",
   },
   serverRuntimeConfig: {
-    SERVER_FOO: "SERVER_BAR",
+    SERVER_FOO: process.env.SERVER_FOO || "SERVER_BAR",
   },
   reactStrictMode: true,
   swcMinify: true,

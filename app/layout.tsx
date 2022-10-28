@@ -1,8 +1,12 @@
 import getConfig from "next/config";
 import { PropsWithChildren } from "react";
+import { getExpected } from "../lib/expect";
+
+import "../styles/globals.css";
 
 export default async function Layout({ children }: PropsWithChildren) {
-  const config = getConfig() || {};
+  const got = getConfig();
+  const expected = getExpected(true);
   return (
     <html>
       <head>
@@ -13,7 +17,12 @@ export default async function Layout({ children }: PropsWithChildren) {
           <div>
             <b>Layout (Server Component, getConfig)</b>
           </div>
-          <div>{JSON.stringify(config)}</div>
+          <div>
+            Got: <code>{JSON.stringify(got)}</code>
+          </div>
+          <div>
+            Expected: <code>{JSON.stringify(expected)}</code>
+          </div>
         </div>
         <div>{children}</div>
       </body>
